@@ -71,6 +71,22 @@ add_theme_support('post-thumbnails');
 add_image_size('phot', 300, 500);
 // Add External Link to Featured Image with Custom Field
 
+add_action("admin_init", "admin_init");
+
+function admin_init(){
+  add_meta_box("link_url-meta", "Post Url", "link_url", "photo", "side", "low");
+}
+
+function link_url(){
+    global $post;
+    $custom = get_post_custom($post->ID);
+    $link_url = $custom["link_url"][0];
+    ?>
+    <label>Post Url:</label>
+    <input name="link_url" value="<?php echo $link_url; ?>" />
+    <?php
+  }
+
 function wpb_autolink_featured_images( $html, $post_id, $post_image_id ) {
   $post_content = get_post($post_id);
   $content = $post_content->post_content;
