@@ -96,12 +96,20 @@ get_header();
           if($mypostsPhoto):?>
           
            
-                <?php foreach ($mypostsPhoto as $mypostPhoto): 
-                  $custom = get_post_meta($mypostPhoto, 'link_url-meta', true );
-                  ?> 
+                <?php foreach ($mypostsPhoto as $mypostPhoto):
+                $post_content = get_post($mypostPhoto);
+                $content = $post_content->post_content;
+                $url = get_post_meta($mypostPhoto->ID, 'link_url');
+ 
+                             
+
+                ?> 
                 <!-- Content -->
-                  <div class="photos"><a href="<?php echo $custom ?>">
-                  <? echo get_the_post_thumbnail($mypostPhoto, 'phot'); ?></a>
+                lalal
+                <?php echo $url[0] ?>
+                <?php echo "ddd" ?>
+                  <div class="photos"><a href="<?php apply_filters('the_content',$content) ?>">
+                  <?php echo get_the_post_thumbnail($mypostPhoto, 'phot'); ?></a>
                   </div>
                     
                 <?php endforeach; wp_reset_postdata(); ?>
