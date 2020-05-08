@@ -86,14 +86,5 @@ function link_url(){
     <input name="link_url" value="<?php echo $link_url; ?>" />
     <?php
   }
+  
 
-function wpb_autolink_featured_images( $html, $post_id, $post_image_id ) {
-  $post_content = get_post($post_id);
-  $content = $post_content->post_content;
- 
-  
-  $html = '<a href="' . apply_filters('the_content',$content)  . '" tittle="' . esc_attr( get_the_content( $post_id ) ) . '">' . $html . '</a>';
-  return $html;
-  }
-  add_filter( 'post_thumbnail_html', 'wpb_autolink_featured_images', 10, 3 );
-  
