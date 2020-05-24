@@ -134,3 +134,12 @@ function design(){
 
   }
  
+
+  add_action( 'after_setup_theme', 'predefined_gutenberg_css' );
+
+  function predefined_gutenberg_css(){
+ 
+    add_theme_support( 'editor-styles' ); // if you don't add this line, your stylesheet won't be added
+    add_editor_style( 'gutenberg-style.css' ); // tries to include style-editor.css directly from your theme folder
+   
+  }
