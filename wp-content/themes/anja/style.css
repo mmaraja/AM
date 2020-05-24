@@ -15,8 +15,9 @@ html {
 
 
 body {
-text-align: left;
-
+  height:100%;
+  width:100%;
+  
 }
 
 
@@ -27,31 +28,35 @@ ul {
 .ct, .cb, .cr, .cl {
     background-color: rgb(196, 0, 122);
     position: fixed;
-    z-index: 99999;
+   
 }
 .ct {
   top: 0;
   right: 0;
   left: 0;
   height: 5px;
+  z-index: 30;
 }
 .cr {
   top: 0;
   right: 0;
   bottom: 0;
   width: 5px;
+  z-index: 10;
 }
 .cb {
   bottom: 0;
   right: 0;
   left: 0;
   height: 5px;
+  z-index: 10;
 }
 .cl {
   top: 0;
   left: 0;
   bottom: 0;
   width: 5px;
+  z-index: 10;
 }
 
 .logo {
@@ -67,27 +72,26 @@ ul {
 .logo:hover {
     text-decoration: none;
 }
+@media (max-width: 960px) {
+  .logo {
+    font-size: 17pt;
+    padding-left: 14px;
+    padding-top: 10px;
+  }
+}
 .jumbotron {
     height: 80px;
     background-color: rgb(0, 157, 224);
     width: 100wh;
     
 }
-#ttr_sidebar{
-border-left: 1px solid black;
-}
-#ttr_footer{
-width: 100%;
-border-top: 1px #a2a2a2 solid;
-text-align: center;
-}
-
 .container {
-    max-width: 1500px;
-    margin-left: 230px;
     margin-top: 100px;
     padding: 0 16px;
-    position: absolute;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
   }
   @media (max-width: 700px) {
     .container {
@@ -97,11 +101,7 @@ text-align: center;
     }
   }
   
-  .container--narrow {
-    max-width: 1060px;
-    position: static;
-    margin-left: 250
-  }
+
 .title{
     font-size: 11pt;
     font-family: verdana;
@@ -115,26 +115,37 @@ nav {
 
 .burger-menu {
 	display: block;
-    position: absolute;
-
-	margin-bottom: 0px;
+  position: absolute;
 	margin-top: 70px;
   cursor: pointer;
   color: rgb(255,237,0);
   
 }
+@media (max-width: 960px) {
+  .burger-menu {
+     margin-top: 30px;
+     position: absolute;
+     right:20px;
+  }
+}
 
 .dropdown {
-    position: absolute;
+    position: relative;
     right: 100px;
    
+}
+@media (max-width:960px) {
+  .dropdown {
+    position: absolute;
+    right: 20px;
+ 
+  }
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
     background-color: rgb(0, 157, 224);
-    min-width: 400px;
     z-index: 1;
     overflow: hidden !important;
   
@@ -156,21 +167,22 @@ nav {
 }
 
 .dropdown .dropdown-content.show {
-  display: block;
-  right: -100px;
+  display: flex;
   position: absolute;
-  height: 100vh;
-  top: 100px;
+  right: -100px;
+  top: 110px;
   z-index: 3;
-  min-width: 300px;  
-    
-}
-@media (min-width: 767px) {
+  min-width: 250px;  
+  box-shadow: 7px 7px 7px magenta; 
   
-  .dropdown dropdown-content.show {
-    width: 250px;
+}
+@media (max-width: 980px) {
+  
+  .dropdown .dropdown-content.show {
     float: right;
     position: absolute;
+    margin-top: -30px;
+    width: 330px;
   }
 }
 
@@ -180,8 +192,7 @@ nav {
     left:0;
     z-index: 1;
     background-color: none;
-    margin-left: 40px;
-    min-width: max-content;
+     
     
   }
   
@@ -190,7 +201,7 @@ nav {
     .page-links {
       width: 300px;
       float: left;
-      margin-left: 0px;
+      margin-left: 210px;
       top: 0;
     }
   }
@@ -200,13 +211,14 @@ nav {
     font-weight: normal;
     text-align: left;
     color: #FFF;
-   
+    margin-bottom: 12.559mm;
   }
   
   .page-links__title a {
-    color: rgb(196, 0, 122);
+    color: magenta;
     text-decoration: underline;
     outline: none;
+    font-size:21pt;
   }
   
   
@@ -214,42 +226,50 @@ nav {
     display: block;
     text-align: left;
     margin-left: 30px;
+    font-size:10.5pt;
     color: black;
-    transition: all .3s;
+    padding: 16pt;
+  
   }
   
 
   .min-list {
     padding: 0;
     margin: 0;
+    margin-bottom: 10mm;
   }
+
   
-  .min-list li {
-    list-style: none;
-  }  
-  .square {
-    position: absolute;
-    margin-left: -50px;
-    margin-top: -20px;
-    width: 1200px;
-    height: 570px;
-    background-color: none;
-    border: 3px solid rgb(255, 237, 0);
-    image-orientation: inherit;
+.square {
+  position: absolute;
+  width: 250px;
+  height: 350px;
+  border: 3px solid rgb(255, 237, 0);
+  left: 10px;
+  top: -70px;
     
 }
-.post-type {
-  margin-top: 300px;
-  display: table-row;
+@media (min-width: 960px ) {
+    
+.square {
+  position: relative;
+  width: 1200px;
+  height: 570px;
+  border: 3px solid rgb(255, 237, 0);
+  left: 250px;
+  top: 10px;
+    
+  }
 }
-.post-type a {
-  border-bottom: 2px solid black;
+
+#post-type {
   color: black;
   font-size: 21pt;
   text-decoration: none;
   outline: none;
 
 }
+
 button.link {
   background: none!important;
   border: none;
@@ -263,46 +283,91 @@ button.link {
 }
 button.link:hover, button.link:active, button.link:focus {
   border-bottom: 2px solid black;
-
+  color: yellow;
 }
 
-footer { 
-  clear:both; 
+footer {
   width: 100%; 
-  height: 10%; 
-  position: fixed; 
-  bottom:0%; 
-  padding: 1%; 
-  z-index: 5;
+  height: 0%; 
+  position: relative; 
+  bottom:0 !important; 
+  z-index: 20;
+  border-top: 5px solid rgb(196, 0, 122);
+  
+  
 }
 
-.site-footer {
-  width: 85%;
-  clear: both;
-  text-align: right;
-  margin-right: 50px;
-  margin-bottom: 50px;
-
+  @media(min-width: 960px) {
+    footer {
+      width: 100%; 
+      height: 0%; 
+      position: relative; 
+      bottom:0 !important; 
+      z-index: 20;
+      border-top: 5px solid rgb(196, 0, 122);
+      
+      
+    }
 }
-
-@media (min-width: 960px) {
-
-  .site-footer {
-    padding-top: 0;
-    clear: none;
-    width: 25%;
-    float: right;
-    margin-bottom: 20px;
-    z-index: 5;
-  }
+.text-center {
+  text-align: center !important;
+  background-color: lightgray;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .icons {
   display: block ruby;
-  margin-top: 0px;
+  width: 100px;
+  position: absolute;
+  right: 120px;
+
+}
+li {
+  padding-right: 15px;
 }
 
-.photos {
-  display: inline-block;
-  position: relative;
-  margin-left: 250px;
+.image-grid-container { 
+  display: grid; 
+
+  /* For 2 columns */ 
+  grid-template-columns: auto auto; 
+} 
+.blocks-gallery-item {
+  margin-right: 10px !important;
+  margin-bottom: 30px !important;
+}
+.wp-block-gallery.is-cropped .blocks-gallery-item img {
+  width:250px !important;
+
+}
+.wp-block-gallery.is-cropped .blocks-gallery-item a {
+  width: 110px !important;
+}
+.wp-block-gallery .blocks-gallery-item figcaption {
+  width:250px !important;
+  background: none;
+}
+
+#single-post {
+  margin-left: 200px;
+  
+}
+.postname {
+  color: rgb(196, 0, 122);
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
+  font-size: 31pt;
+  padding-bottom: 32pt;
+}
+
+.post-content h2 {
+  text-decoration: underline;
+  padding-top: 32pt;
+  padding-bottom: 32pt;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 21pt;
+}
+.post-content {
+  font-family: Helvetica ;
+  font-size: 16pt;
+
 }

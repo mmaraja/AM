@@ -63,28 +63,65 @@ function create_posttype() {
           'query_var' => true,
       )
   );
+  register_post_type( 'video',
+  // CPT Options
+  
+      array(
+          'labels' => array(
+              'name' => __( 'Video' ),
+              'singular_name' => __( 'Video' )
+          ),
+          'public' => true,
+          'supports' =>  $supports,
+          'has_archive' => true,
+          'rewrite' => array('slug' => 'index'),
+          'show_in_rest' => true,
+          'publicly_queryable' => true,
+          'query_var' => true,
+      )
+  );
 }
 // Hooking up our function to theme setup
 add_action( 'init', 'create_posttype' );
 // Add theme support for featured image / thumbnails
 add_theme_support('post-thumbnails');
-add_image_size('phot', 300, 500);
+add_image_size('phot', 200, 800);
 // Add External Link to Featured Image with Custom Field
 
 add_action("admin_init", "admin_init");
 add_action('save_post', 'save_details');
 
 function admin_init(){
-  add_meta_box("link_url-meta", "Post Url", "link_url", "photo", "side", "low");
+  add_meta_box("performing_arts-meta", "Performing arts", "performing_arts", "photo", "side", "low");
+  add_meta_box("design-meta", "Design", "design", "photo", "side", "low");
+  add_meta_box("youtube_link-meta", "YouTube Url", "youtube_link", "video", "side", "low");
 }
 
-function link_url(){
+function performing_arts(){
     global $post;
     $custom = get_post_custom($post->ID);
-    $link_url = $custom["link_url"][0];
+    $performing_arts = $custom["performing_arts"][0];
     ?>
-    <label>Post Url:</label>
-    <input name="link_url" value="<?php echo $link_url; ?>" />
+    <label>Performing arts:</label>
+    <input name="performing_arts" value="<?php echo $performing_arts; ?>" />
+    <?php
+  }
+function design(){
+    global $post;
+    $custom = get_post_custom($post->ID);
+    $design = $custom["design"][0];
+    ?>
+    <label>Design:</label>
+    <input name="design" value="<?php echo $design; ?>" />
+    <?php
+  }
+  function youtube_link(){
+    global $post;
+    $custom = get_post_custom($post->ID);
+    $link_url = $custom["youtube_link"][0];
+    ?>
+    <label>YouTube Url:</label>
+    <input name="youtube_link" value="<?php echo $youtube_link; ?>" />
     <?php
   }
 
@@ -92,17 +129,8 @@ function link_url(){
     global $post;
   
     update_post_meta($post->ID, "link_url", $_POST["link_url"]);
+    update_post_meta($post->ID, "youtube_link", $_POST["youtube_link"]);
+    update_post_meta($post->ID, "performing_arts", $_POST["performing_arts"]);
 
   }
-
-function wpb_autolink_featured_images( $html, $post_id, $post_image_id ) {
-  $post_content = get_post($post_id);
-  $content = $post_content->post_content;
  
-  
-  $html = '<a href="' . apply_filters('the_content',$content)  . '" tittle="' . esc_attr( get_the_content( $post_id ) ) . '">' . $html . '</a>';
-  return $html;
-  }
-  add_filter( 'post_thumbnail_html', 'wpb_autolink_featured_images', 10, 3 );
-  
-

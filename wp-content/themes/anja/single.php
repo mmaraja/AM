@@ -13,17 +13,19 @@ get_header(); ?>
     <div class="cb"></div>
     <div class="cl"></div>
     <div class="container">
-       
-  
-        <?php
-        // Start the loop.
-        while ( have_posts() ) : the_post();
-         the_post_thumbnail(); 
-            the_content();
-  
-        endwhile;
-        ?>
-  
+    <div class="row">
+            <div class="col-lg-3" id="single-post">
+            <div class="postname"><?php echo get_the_title( $post_id ); ?></div>
+            <div class="post-content">
+                <?php
+                // Start the loop.
+                while ( have_posts() ) : the_post();
+                    the_content(); 
+                endwhile;
+                ?>      
+            </div>
+            </div>
+        </div>
      
     </div><!-- .content-area -->
   

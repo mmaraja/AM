@@ -11,12 +11,13 @@ get_header();
     <div class="cr"></div>
     <div class="cb"></div>
     <div class="cl"></div>
-	  <div class="container">
-
-      <div class="page-links">
+    
+	  <div class="container ">
+    <div class="row">
+      <div class="col-lg-4 col-sm-12 page-links">
 		
         <div>
-            <h2 class="page-links__title"><a href="<?php echo get_permalink($theParent); ?>"><?php echo get_the_title($theParent); ?>/</a></h2>
+            <h2 class="page-links__title"><a href="<?php echo get_permalink($theParent); ?>"><?php echo get_the_title($theParent); ?>&nbsp; /</a></h2>
             <ul class="min-list">
               <li><button id="perf-art" class="link">performing arts</button></li>
               <li><button id="des" class="link">design</button></li>
@@ -41,13 +42,14 @@ get_header();
         // If there are posts
         if($myposts): ?>
           <div id="performing-arts">
-       
+          <div class="col-md-12 col-sm-12 col-lg-8" style="box-shadow: 7px 7px 7px cyan; border: 1pt solid magenta;">
             <?php foreach ($myposts as $mypost): ?>
-              <div class="post-type"><a href="<?php echo get_permalink($mypost->ID); ?>"><?php echo get_the_title($mypost->ID); ?></a></div>
+              <div><a id="post-type" href="<?php echo get_permalink($mypost->ID); ?>"><?php echo get_the_title($mypost->ID); ?></a></div>
                 <?php echo $trimmed = wp_trim_words(get_the_content($mypost->ID), ''); ?>
 
             <?php endforeach; wp_reset_postdata(); ?>
-          
+           
+          </div>
           </div>
         <?php endif; ?>
          
@@ -69,12 +71,13 @@ get_header();
         if($mypostsDes):?>
         
           <div id="design" style="display: none">
+          <div class="col-md-12 col-sm-12 col-lg-8" style="box-shadow: 7px 7px 7px cyan; border: 1pt solid magenta;">
               <?php foreach ($mypostsDes as $mypostDes): ?> 
               <!-- Content -->
-                <div class="post-type"><a href="<?php echo get_permalink($mypostDes->ID); ?>"><?php echo get_the_title($mypostDes->ID); ?></a></div>
+                <div><a  id="post-type" href="<?php echo get_permalink($mypostDes->ID); ?>"><?php echo get_the_title($mypostDes->ID); ?></a></div>
                    <?php echo $trimmed = wp_trim_words(get_the_content($mypostDes->ID)); ?>
               <?php endforeach; wp_reset_postdata(); ?>
-              
+          </div>    
           </div>  
         <?php endif; ?>
         
@@ -90,33 +93,30 @@ get_header();
           );
         
           // Get the posts
-          $mypostsPhoto = get_posts($argsPhoto);
-
-          // If there are posts
+          $mypostsPhoto = get_posts($argsPhoto); ?>
+         
+          <? // If there are posts
           if($mypostsPhoto):?>
           
-           
+                
+                <div class="col-sm-12 col-lg-6" style="width: 70rem; margin-left:-70px;">
+                  <div class="image-grid-container"> 
                 <?php foreach ($mypostsPhoto as $mypostPhoto):
                 $post_content = get_post($mypostPhoto);
                 $content = $post_content->post_content;
-                $url = get_post_meta($mypostPhoto->ID, 'link_url');
- 
-                             
-
+                $url = get_post_meta($mypostPhoto->ID, 'performing_arts', true);
                 ?> 
                 <!-- Content -->
-                lalal
-                <?php echo $url[0] ?>
-                <?php echo "ddd" ?>
-                  <div class="photos"><a href="<?php apply_filters('the_content',$content) ?>">
-                  <?php echo get_the_post_thumbnail($mypostPhoto, 'phot'); ?></a>
-                  </div>
-                    
+               
+                <?php echo apply_filters('the_content',$mypostPhoto->post_content); ?>
+                 
                 <?php endforeach; wp_reset_postdata(); ?>
-                
+                </div>
+                </div>
+              
          
           <?php endif; ?>
-          
+          </div>
     </div>
   
     <?php }
