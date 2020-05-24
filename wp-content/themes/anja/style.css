@@ -347,16 +347,21 @@ li {
   background: none;
 }
 
-#single-post {
-  margin-left: 200px;
+.single-post {
+  margin-left: 12px;
   
+}
+@media(min-width: 960px) {
+  .single-post {
+    margin-left:200px;
+  }
 }
 .postname {
   color: rgb(196, 0, 122);
   font-family: Arial, Helvetica, sans-serif;
   font-style: italic;
   font-size: 31pt;
-  padding-bottom: 32pt;
+  line-height: 32pt;
 }
 
 .post-content h2 {
@@ -366,8 +371,26 @@ li {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 21pt;
 }
+.post-content h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
+  font-size: 14pt;
+  color: rgb(40,78,153);
+  line-height: 21pt;
+  padding-top: 21pt;
+}
 .post-content {
-  font-family: Helvetica ;
+  font-family: Arial, Helvetica, sans-serif ;
   font-size: 16pt;
 
+}
+.wp-block-column {
+  margin-right:100px;
+}
+.pgcsimplygalleryblock-grid-item img {
+  padding: 50px !important;
+}
+.pgcsimplygalleryblock-grid-item-hover {
+  opacity: 0 !important;
+  
 }

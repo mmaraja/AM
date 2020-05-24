@@ -101,17 +101,17 @@ get_header();
                 
                 <div class="col-sm-12 col-lg-6" style="width: 70rem; margin-left:-70px;">
                   <div class="image-grid-container"> 
-                <?php foreach ($mypostsPhoto as $mypostPhoto):
-                $post_content = get_post($mypostPhoto);
-                $content = $post_content->post_content;
-                $url = get_post_meta($mypostPhoto->ID, 'performing_arts', true);
-                ?> 
-                <!-- Content -->
+                    <?php foreach ($mypostsPhoto as $mypostPhoto):
+                    $post_content = get_post($mypostPhoto);
+                    $content = $post_content->post_content;
+                    $url = get_post_meta($mypostPhoto->ID, 'performing_arts', true);
+                    ?> 
+                    <!-- Content -->
                
-                <?php echo apply_filters('the_content',$mypostPhoto->post_content); ?>
-                 
-                <?php endforeach; wp_reset_postdata(); ?>
-                </div>
+                    <?php echo apply_filters('the_content',$mypostPhoto->post_content); ?>
+                    
+                    <?php endforeach; wp_reset_postdata(); ?>
+                  </div>
                 </div>
               
          
