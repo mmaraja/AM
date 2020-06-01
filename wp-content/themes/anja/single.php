@@ -1,10 +1,6 @@
 <?php
 /**
  * The template for displaying all single posts and attachments
- *
- * @package WordPress
- * @subpackage Twenty_Fifteen
- * @since Twenty Fifteen 1.0
  */
   
 get_header(); ?>
@@ -14,8 +10,9 @@ get_header(); ?>
     <div class="cl"></div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 col-sm-12" style="padding-left:200px; padding-right:50px">
-                <div class="postname"><?php echo get_the_title( $post_id ); ?></div>
+            <div class="col-lg-1 col-md-1 puscica nazaj" ><?php do_action('back_button'); ?></div>
+            <div class="col-lg-11 col-md-11 col-sm-11">
+              <div class="postname"><?php echo get_the_title( $post_id ); ?></div>
                     <div class="post-content">
                         <?php
                         // Start the loop.
@@ -27,16 +24,7 @@ get_header(); ?>
 
                     </div>
             </div>
-            <!-- <div class="col-lg-5">
-                <span class="border">
-                
-                    <a><?php echo get_the_post_thumbnail($post_id, 'phot'); ?></a>
-
-                </span>
-            </div> -->
-           
-        </div>        
-     
+        </div>       
     </div><!-- .content-area -->
   
 <?php get_footer(); ?>
