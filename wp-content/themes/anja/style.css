@@ -85,26 +85,7 @@ ul {
     width: 100wh;
     
 }
-.container {
-    margin-left:0;
-    position: relative;
-    max-width: 100%;
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-}
-@media (min-width: 767px) {
-  .container {
-    position:relative;
-    margin-top: 100px;
-    padding: 0 16px;
-    max-width: 100%;
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-  
-  }
-}
+
 
 .title{
     font-size: 11pt;
@@ -310,8 +291,12 @@ button.link {
   height: 23px;
   
 }
-button.link:hover, button.link:active, button.link:focus {
+button.link:active, button.link:focus {
   border-bottom: 2px solid black;
+
+}
+
+button.link:hover {
   color: yellow;
 }
 
@@ -363,32 +348,26 @@ li {
 }
 
 .image-grid-container {
-    width: 100%;
-    grid-template-columns: max-content;
+  margin-left:0;
+  margin-top: 2rem;
+  grid-template-columns: 230px 230px 230px; 
+}
+@media (min-width: 700px) {
+  .image-grid-container {
+    margin-left: 40px;
+    margin-top: 1rem;
+    display: grid;
+}
+}
+@media screen and (min-width: 1200px) {
+  .image-grid-container { 
     display: grid; 
     margin-bottom: 70px;
     /*Define our columns */
-    grid-template-columns: 230px 230px 230px; 
-    width: 100%; 
-    margin-left: 130px;
-    margin-top: -0.5rem;
- 
-}
-@media screen and (max-width: 1200px) {
-    
-  .image-grid-container { 
-    margin-left:0;
-    margin-top: -0.5rem;
+    padding-left: 130px;
   } 
 }
-@media (max-width: 1100px) {
-  .slikce {
-    margin-left: 80px;
-    margin-top: 30px;
-    max-width:80%;
 
-  }
-}
 
 
 .postname {
@@ -452,30 +431,7 @@ li {
   opacity: 0 !important;
 
 }
-/*
-.pgcsimplygalleryblock-grid-item {
-  width: 50vw !important; 
-  height: 70vh !important; 
-}
-.pgcsimplygalleryblock-grid-item .pgcsimplygalleryblock-grid-item-hover {
-  width: 50vw !important; 
-  height: 70vh !important; 
-}
-.pgcsimplygalleryblock-grid-item .pgcsimplygalleryblock-grid-item-inner {
-  width: 50vw !important; 
-  height: 70vh !important; 
-}
-.pgcsimplygalleryblock-grid-item .pgcsimplygalleryblock-grid-main-wrap .pgcsimplygalleryblock-grid-item-wrap {
-  width: 50vw !important; 
-  height: 70vh !important; 
-}
-.pgcsimplygalleryblock-grid-item .pgcsimplygalleryblock-grid-main-wrap {
-  width: 50vw !important; 
-  height: 70vh !important; 
 } */
-div.advgb-image-block {
-  margin-bottom: 32px !important;
-}
 @media(min-width: 767px) {
   div.nazaj {
     padding-left: 10px;
@@ -553,4 +509,17 @@ div.child ul li a:hover, div.child ul li a:active, div.child ul li a:focus {
 }
 a:hover {
   text-decoration: none;
+}
+
+
+.content-wrapper {
+  padding-top: 70px;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative; 
+}
+
+.photo-wrapper {
+  margin-bottom: 15px;
 }

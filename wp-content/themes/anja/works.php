@@ -12,9 +12,9 @@ get_header();
     <div class="cb"></div>
     <div class="cl"></div>
     
-	  <div class="container ">
+	  <div class="container-fluid content-wrapper">
     <div class="row">
-      <div class="col-lg-3 col-sm-12 col-md-12 page-links">
+      <div class="offset-lg-1 col-lg-3 col-sm-12 col-md-12">
             <h2 class="page-links__title"><a href="<?php echo get_permalink($theParent); ?>"><?php echo get_the_title($theParent); ?>&nbsp; /</a></h2>
             <ul class="min-list">
               <li><button id="perf-art" class="link">performing arts</button></li>
@@ -97,19 +97,16 @@ get_header();
           if($mypostsPhoto):?>
           
                 
-                <div class="col-sm-12 col-lg-6">
-                  <div class="image-grid-container slikce"> 
+                <div class="col-sm-12 col-lg-6 col-md-8">
+                  <div class="image-grid-container"> 
                     <?php foreach ($mypostsPhoto as $mypostPhoto):
                     $post_content = get_post($mypostPhoto);
-                    $content = $post_content->post_content;
-                    $url = get_post_meta($mypostPhoto->ID, 'performing_arts', true);
-                    $url2 = get_post_meta($mypostPhoto->ID, 'design', true);
-
+                   
                     ?> 
                     <!-- Content -->
-               
-                    <?php echo apply_filters('the_content',$mypostPhoto->post_content); ?>
-                    
+           
+                     <?php echo apply_filters('the_content',$mypostPhoto->post_content); ?>
+
                     <?php endforeach; wp_reset_postdata(); ?>
                   </div>
                 </div>
