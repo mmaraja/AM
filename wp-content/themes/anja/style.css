@@ -11,6 +11,8 @@ html {
     line-height: 1.15; /* 2 */
     -ms-text-size-adjust: 100%; /* 3 */
     -webkit-text-size-adjust: 100%; /* 3 */
+    scrollbar-color: rgb(196, 0, 122) white;
+    scrollbar-width: thin;
   }
 
 
@@ -107,7 +109,7 @@ nav {
   right:20px;
   
 }
-@media (min-width: 767px) {
+@media (min-width: 567px) {
   .burger-menu {
      margin-top: 60px;
      position: absolute;
@@ -171,28 +173,6 @@ nav {
   }
 }
 
-
-  .page-links {
-    position: relative;
-    left:0;
-    z-index: 1;
-  }
-  
-@media(min-width: 600px) {
-  .page-links {
-    left:50px;
-    min-width: 35%;
-    
-  }
-}
-
-@media (min-width: 1500px) {
-  
-  .page-links {
-       margin-left: 210px;
-       min-width:400px;
-  }
-}
  
   .page-links__title {
     margin: 0;
@@ -211,17 +191,6 @@ nav {
   }
   
   
-  .page-links li a {
-    display: block;
-    text-align: left;
-    margin-left: 30px;
-    font-size:10.5pt;
-    color: black;
-    padding: 16pt;
-  
-  }
-  
-
  
   .min-list {
     padding: 0;
@@ -232,7 +201,7 @@ nav {
 
   
 .video-border {
-  padding:0;
+    padding:0;
     margin: 0 auto;
     max-height: 80%;
     display: table;
@@ -242,16 +211,16 @@ nav {
   iframe {
     border: 3px solid rgb(255, 237, 0);
     width: 300px;
-    height: 200px;
+    height: 600px;
     
   }
-@media (min-width: 450px) {
+@media (min-width: 520px) {
   iframe {
-    width: 550;
+    width: 500;
     height: 300px;
   }
 }
-@media (min-width: 960px) {
+@media (min-width: 1020px) {
   iframe {
     width:1000px;
     height: 550px;
@@ -348,25 +317,29 @@ li {
 }
 
 .image-grid-container {
-  margin-left:0;
-  margin-top: 2rem;
-  grid-template-columns: 230px 230px 230px; 
+  justify-content: center;
+  margin-top: 20px;
+
 }
-@media (min-width: 700px) {
-  .image-grid-container {
-    margin-left: 40px;
-    margin-top: 1rem;
-    display: grid;
-}
-}
-@media screen and (min-width: 1200px) {
+
+@media screen and (min-width: 576px) {
   .image-grid-container { 
     display: grid; 
-    margin-bottom: 70px;
     /*Define our columns */
-    padding-left: 130px;
+    grid-template-columns: 230px 230px; 
+  
   } 
 }
+@media screen and (min-width: 992px) {
+  .image-grid-container { 
+    display: grid; 
+    /*Define our columns */
+    grid-template-columns: 230px 230px 230px; 
+    margin-left: 150px;
+    
+  } 
+}
+
 
 
 
@@ -376,6 +349,11 @@ li {
   font-style: italic;
   font-size: 31pt;
   line-height: 32pt;
+}
+@media (max-width: 767px) {
+  .postname {
+    margin-left: 30px;
+  }
 }
 
 .post-content h2 {
@@ -402,14 +380,16 @@ li {
 .post-content {
   font-family: Arial, Helvetica, sans-serif ;
   font-size: 16pt;
-
+  margin-right: 100px;
 }
-
-@media(min-width: 782px) {
-  .wp-block-columns {
-    margin-right:100px;
+@media (max-width: 767px) {
+  .post-content {
+    margin-left: 30px;
+    margin-right:20px;
   }
 }
+
+
 .blok {
   margin-left: -20px;
   
@@ -421,43 +401,17 @@ li {
     padding-left: 25px;
   }
 }
-.pgcsimplygalleryblock-grid-item img {
-  padding: 50px !important;
- /* width: 50vw !important; 
-  height: 70vh !important; */
-  
-}
-.pgcsimplygalleryblock-grid-item-hover {
-  opacity: 0 !important;
 
-}
-} */
-@media(min-width: 767px) {
-  div.nazaj {
-    padding-left: 10px;
-    margin-top: -7px;
-  }
-}
 
-div.nazaj {
-  display:none;
+.nazaj {
+  display:none; 
 }
-div.puscica {
-    padding-top: 0px; 
-    padding-left: 20px; 
-    display: inline-block;  
-    outline: none; 
-}
-@media(max-width: 600px) {
-  div.puscica {
-    display:none;
-  }
-}
-@media(min-width:1090px) { 
-  div.puscica {
-    padding-top: 0px; 
-    padding-left: 120px; 
-    display: inline-block;  
+@media(min-width:767px) { 
+  .nazaj {
+    padding-top: 0px;
+    margin-top: -5px; 
+    float: right;
+    display: block;  
     outline: none; 
   }
 }
@@ -486,10 +440,6 @@ div.puscica {
   line-height: 32pt;
   
 }
-.page-post {
-  padding-left: 210px;
-
-}
 
 
 div.child ul li a{
@@ -501,6 +451,7 @@ div.child ul li a{
   margin-left: 25px;
   margin-top: 3px;
   height: 23px;
+  color: black;
   
 }
 div.child ul li a:hover, div.child ul li a:active, div.child ul li a:focus {
@@ -522,4 +473,111 @@ a:hover {
 
 .photo-wrapper {
   margin-bottom: 15px;
+}
+.wp-block-pgcsimplygalleryblock-grid {
+  max-width:700px;
+  display: block;
+  margin-top: 30px;
+}
+@media(min-width: 767px) {
+  .wp-block-pgcsimplygalleryblock-grid {
+    max-width:600px;
+    margin-left: 100px;
+  }
+}
+.pgcsimplygalleryblock-grid-item {
+  padding-bottom: 50px;
+  max-height: 500px;
+}
+.pgcsimplygalleryblock-grid-item:first-child {
+  border: 3px solid rgb(255, 237, 0);
+  padding-bottom: 1.3pt;
+  margin-bottom: 50px;
+}
+
+.pgcsimplygalleryblock-grid-item:nth-child(2)  {
+  border: 3px solid rgb(255, 237, 0);
+  padding-bottom: 1.3pt;
+  margin-bottom: 50px;
+}
+
+.pgcsimplygalleryblock-grid-item:nth-child(n+3)  {
+  max-width: 600px;
+  max-height: 400px;
+}
+a.type-sklad {
+  color: black;
+  font-size: 10.5pt;
+  line-height: 16pt;
+  margin-left: 6mm;
+  outline: none;
+ 
+}
+
+a.type-sklad:active, a.type-sklad:focus {
+  border-bottom: 1pt solid black !important;
+}
+.contains {
+  border: 2pt solid yellow;
+  padding:2px;
+}
+
+/* .sklad-slike .pgcsimplygalleryblock-grid-item:nth-child(n) {
+  border: 1pt solid #BEBEBE !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+}
+
+.sklad-slike .pgcsimplygalleryblock-grid-main-wrap{
+  padding: 0 !important;
+}
+@media(min-width: 767px) {
+  .sklad-slike .wp-block-pgcsimplygalleryblock-grid {
+    max-width:1500px;
+    margin-left: 100px;
+  }
+}
+.sklad-slike .pgcsimplygalleryblock-grid-item {
+  padding-bottom: 50px;
+  max-height: 500px;
+  max-width: 500px;
+} */
+
+.sklad-slike {
+  justify-content: center;
+  margin-top: 28mm;
+  margin-bottom: 10mm;
+}
+@media (min-width: 767px) {
+  .sklad-slike {
+    grid-template-columns: 350px 350px;
+    display: grid;
+  }
+
+}
+@media (min-width:1076px) {
+  .sklad-slike {
+    grid-template-columns: 550px 550px;
+    display: grid;
+  }
+}
+.sklad-slike div div {
+  border: 1pt solid #BEBEBE ;
+  margin-bottom: 30px;
+  
+}
+@media(max-width:1076px) {
+  .sklad-slike div div {
+    max-width:300px;
+    
+  }
+}
+
+.page-content {
+  border: 2pt solid yellow;
+  padding: 2px;
+  margin-top: 50px;
+}
+.underline {
+  border-bottom: 2px solid black !important;
 }

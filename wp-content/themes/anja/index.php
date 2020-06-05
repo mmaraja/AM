@@ -4,7 +4,7 @@
   <div class="cb"></div>
   <div class="cl"></div>
 
-      <div class="container">
+      <div class="container-fluid content-wrapper">
         <div class="row">
           <div class="col-lg-12 col-12">
         

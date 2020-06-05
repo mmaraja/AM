@@ -1,4 +1,5 @@
 <html>
+	
 <head>
 <title>Anja Mejac</title>
    
@@ -28,27 +29,19 @@
 	    <div class="dropdown">
             <i class="fa fa-bars fa-2x burger-menu" ></i>  
             <div class="dropdown-content">
-              <?php 
-				if ( has_nav_menu( 'primary-menu' ) ) :
-					wp_nav_menu( array( 
-						'container' 		=> '',
-						'theme_location' 	=> 'primary-menu'
-					) ); 
-				else : ?>
+              
 					<ul>
 						<li><a href="<?php echo site_url('/works') ?>">works</a></li>
-						<li><a href="<?php echo site_url('/skladisce-172');?>">skladišče 172</a></li>
+						<li><a href="<?php echo site_url('/skladisce172/about');?>">skladišče 172</a></li>
 						<li><a href="<?php echo site_url('/calendar');?>">calendar</a></li>
 						<li><a href="<?php echo site_url('/contactbio');?>">contact&bio</a></li>
+						<!-- <?php echo wp_list_pages(array('title_li' => NULL,'sort_column' => 'menu_order')); ?>  -->
 						<li style="padding-top: 25px; padding-bottom: 4mm;">
 						<a href="https://www.instagram.com/mejacanja/?hl=en"><i class="fa fa-instagram up" style="font-size: 1.5em; color: white; padding-right:15px;" aria-hidden="true"> &nbsp;|</i></a>
 						<a href="https://www.facebook.com/compania.t.flamenco" ><i class="fa fa-facebook" style="font-size: 1.5em; color: white; padding-right:20px;" aria-hidden="true"> &nbsp;|</i></a>
 						<a href="https://www.youtube.com/channel/UCYq40lEvN6570R6B9l9zDTA" ><i class="fa fa-youtube-play" style="font-size: 1.5em; color: white;" aria-hidden="true"></i></a></li>
 					</ul>
-					<?php 
-				endif;
-				
-				?>
+					
 				
 			</div>
 			  

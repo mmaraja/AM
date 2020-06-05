@@ -25,24 +25,28 @@ function create_posttype() {
           'show_in_rest' => true,
           'publicly_queryable' => true,
           'query_var' => true,
+          'menu_icon' => 'dashicons-art',
       )
   );
  
-  register_post_type( 'design',
+  register_post_type( 'visual_arts',
   // CPT Options
   
       array(
           'labels' => array(
-              'name' => __( 'Design' ),
-              'singular_name' => __( 'Design' )
+              'name' => __( 'Visual arts' ),
+              'singular_name' => __( 'Visual arts' )
           ),
+          'supports' => $supports,
           'public' => true,
-          'supports' =>  $supports,
           'has_archive' => true,
-          'rewrite' => array('slug' => 'works/design'),
+          'rewrite' => array('slug' => 'works/visual_arts'),
           'show_in_rest' => true,
-          'publicly_queryable' => true,
+          'hierarchical' => true,
           'query_var' => true,
+          'publicly_queryable' => true,
+          'menu_icon' => 'dashicons-welcome-view-site',
+          
       )
   );
   register_post_type( 'photo',
@@ -60,6 +64,7 @@ function create_posttype() {
           'show_in_rest' => true,
           'publicly_queryable' => true,
           'query_var' => true,
+          'menu_icon' => 'dashicons-camera',
       )
   );
   register_post_type( 'video',
@@ -77,8 +82,10 @@ function create_posttype() {
           'show_in_rest' => true,
           'publicly_queryable' => true,
           'query_var' => true,
+          'menu_icon' => 'dashicons-controls-play',
       )
   );
+  
   register_post_type( 'skladisce',
   // CPT Options
   
@@ -96,51 +103,32 @@ function create_posttype() {
           'query_var' => true,
       )
   );
+  register_post_type( 'skladisce_slike',
+  // CPT Options
+  
+      array(
+          'labels' => array(
+              'name' => __( 'Skladisce slike' ),
+              'singular_name' => __( 'Skladisce slike' )
+          ),
+          'public' => true,
+          'supports' =>  $supports,
+          'has_archive' => true,
+          'rewrite' => array('slug' => 'skladisce-172'),
+          'show_in_rest' => true,
+          'publicly_queryable' => true,
+          'query_var' => true,
+      )
+  );
+  
 }
 // Hooking up our function to theme setup
 add_action( 'init', 'create_posttype' );
 // Add theme support for featured image / thumbnails
 add_theme_support('post-thumbnails');
-add_image_size('phot', 200, 800);
-// Add External Link to Featured Image with Custom Field
 
-add_action("admin_init", "admin_init");
-add_action('save_post', 'save_details');
 
-function admin_init(){
-  add_meta_box("performing_arts-meta", "Performing arts", "performing_arts", "photo", "side", "low");
-  add_meta_box("design-meta", "Design", "design", "photo", "side", "low");
-  
-}
 
-function performing_arts(){
-    global $post;
-    $custom = get_post_custom($post->ID);
-    $performing_arts = $custom["performing_arts"][0];
-    ?>
-    <label>Performing arts:</label>
-    <input name="performing_arts" value="<?php echo $performing_arts; ?>" />
-    <?php
-  }
-function design(){
-    global $post;
-    $custom = get_post_custom($post->ID);
-    $design = $custom["design"][0];
-    ?>
-    <label>Design:</label>
-    <input name="design" value="<?php echo $design; ?>" />
-    <?php
-  }
- 
-
-  function save_details(){
-    global $post;
-  
-    update_post_meta($post->ID, "design", $_POST["design"]);
-    update_post_meta($post->ID, "youtube_link", $_POST["youtube_link"]);
-    update_post_meta($post->ID, "performing_arts", $_POST["performing_arts"]);
-
-  }
  
 
   add_action( 'after_setup_theme', 'predefined_gutenberg_css' );
@@ -200,8 +188,6 @@ add_action('init', function() {
 add_action('init', function() {
   $inline_css = '.is-style-h2, .editor-styles-wrapper .is-style-h2 { 
     text-decoration: underline;
-    padding-top: 32pt;
-    padding-bottom: 32pt;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 21pt;}';
   register_block_style('core/heading', [
@@ -218,6 +204,18 @@ add_action('init', function() {
   register_block_style('core/paragraph', [
     'name' => 'team',
     'label' => __('Team', 'txtdomain'),
+    'inline_style' => $inline_css
+  ]);
+});
+add_action('init', function() {
+  $inline_css = '.is-style-post, .editor-styles-wrapper .is-style-post { 
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16pt;
+    line-height:21pt;
+    color: black; }';
+  register_block_style('core/paragraph', [
+    'name' => 'post',
+    'label' => __('Post', 'txtdomain'),
     'inline_style' => $inline_css
   ]);
 });

@@ -11,13 +11,28 @@ $(document).ready(function(){
     });
     $("#perf-art").click(function () {
         $("#performing-arts").show();
-        $("#design").hide();
+        $("#visual-arts").hide();
+        $(".performing-arts").show();
+        $(".visual-arts").hide();
+        
+     
     });
-    $("#des").click(function () {
+    $("#vis-art").click(function () {
         $("#performing-arts").hide();
-        $("#design").show();
+        $("#visual-arts").show();
+        $(".performing-arts").hide();
+        $(".visual-arts").show();
+        $("#perf-art").removeClass('underline');
+        
         
     });
+    
+   
+    $('.visual-arts').css('display','none');
+    $('.performing-arts').css('display');
+    $("#perf-art").addClass('underline');
+    
+    
     
 });
 

@@ -8,10 +8,13 @@ get_header(); ?>
     <div class="cr"></div>
     <div class="cb"></div>
     <div class="cl"></div>
-    <div class="container">
+    <div class="container-fluid content-wrapper">
         <div class="row">
-            <div class="col-lg-1 col-2 puscica" ><?php do_action('back_button'); ?></div>
-            <div class="col-lg-11 col-10 blok">
+            <div class="col-lg-1 col-md-1" >
+                <span class="nazaj">
+                <?php do_action('back_button'); ?></span>
+            </div>
+            <div class="col-lg-11 col-md-11 col-sm-11">
               <div class="postname"><?php echo get_the_title( $post_id ); ?></div>
                     <div class="post-content">
                         <?php
