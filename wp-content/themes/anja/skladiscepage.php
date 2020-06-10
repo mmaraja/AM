@@ -1,6 +1,6 @@
 
 <?php
-/* Template name: page */
+/* Template name: skladiscepage */
 get_header();
 
 	while(have_posts()){
@@ -20,7 +20,7 @@ get_header();
 						// Set the arguments for the query
 						$argsSklad = array( 
 						'numberposts'		=> -1, // -1 is for all
-						'post_type'		=> 'skladisce', // or 'post', 'page'
+						'post_type'		=> 'warehouse', // or 'post', 'page'
 						'orderby' 		=> 'date', // or 'date', 'rand'
 						'order' 		=> 'ASC', // or 'DESC'     
 

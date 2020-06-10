@@ -86,7 +86,10 @@ function create_posttype() {
       )
   );
   
-  register_post_type( 'skladisce',
+
+  
+  
+  register_post_type( 'warehouse',
   // CPT Options
   
       array(
@@ -114,7 +117,7 @@ function create_posttype() {
           'public' => true,
           'supports' =>  $supports,
           'has_archive' => true,
-          'rewrite' => array('slug' => 'skladisce-172'),
+          'rewrite' => array('slug' => 'skladisce-172x'),
           'show_in_rest' => true,
           'publicly_queryable' => true,
           'query_var' => true,

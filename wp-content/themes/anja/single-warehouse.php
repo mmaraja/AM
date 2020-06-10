@@ -1,6 +1,6 @@
 
 <?php
-/* Template name: page */
+
 get_header();
 
 	?>
@@ -12,7 +12,7 @@ get_header();
 		<div class="row">
 			<div class="offset-lg-2 offset-md-1 offset-sm-1 col-lg-4 col-sm-11 col-md-5 ">
 				<div class="pagename">
-                <?php $your_query = new WP_Query( 'pagename=skladisce172' );
+                <?php $your_query = new WP_Query( 'pagename=skladisce-172' );
                     while ( $your_query->have_posts() ) : $your_query->the_post();
                      the_title();
                     endwhile;
@@ -22,7 +22,7 @@ get_header();
                 </div>
                     <?php
                         // query for the about page
-                        $your_query = new WP_Query( 'pagename=skladisce172' );
+                        $your_query = new WP_Query( 'pagename=skladisce-172' );
                         // "loop" through query (even though it's just one page) 
                         while ( $your_query->have_posts() ) : $your_query->the_post();
                             the_content();
@@ -34,7 +34,7 @@ get_header();
 						// Set the arguments for the query
 						$argsSklad = array( 
 						'numberposts'		=> -1, // -1 is for all
-						'post_type'		=> 'skladisce', // or 'post', 'page'
+						'post_type'		=> 'warehouse', // or 'post', 'page'
 						'orderby' 		=> 'date', // or 'date', 'rand'
 						'order' 		=> 'ASC', // or 'DESC'     
 
