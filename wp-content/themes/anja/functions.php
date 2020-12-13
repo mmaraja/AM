@@ -181,7 +181,8 @@ add_action('init', function() {
     font-size: 14pt;
     color: rgb(40,78,153);
     line-height: 21pt;
-    padding-top: 21pt; }';
+    padding-top: 21pt;
+    text-decoration: none !important; }';
   register_block_style('core/heading', [
     'name' => 'h3',
     'label' => __('H3', 'txtdomain'),

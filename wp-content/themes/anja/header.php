@@ -10,6 +10,7 @@
     <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri().'/js/scripts.js'; ?>">
     </script>
 	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri().'/css/bootstrap.css'; ?>">
+	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri().'/style.css'; ?>">
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
 	
 	
@@ -32,9 +33,10 @@
               
 					<ul>
 						<li><a href="<?php echo site_url('/works') ?>">works</a></li>
-						<li><a href="<?php echo site_url('/skladisce172/about');?>">skladišče 172</a></li>
+						<li><a href="<?php echo site_url('/skladisce-172/about');?>">Skladišče 172</a></li>
 						<li><a href="<?php echo site_url('/calendar');?>">calendar</a></li>
-						<li><a href="<?php echo site_url('/contactbio');?>">contact&bio</a></li>
+						<li><a href="<?php echo site_url('/blog');?>">blog</a></li>
+						<li><a href="<?php echo site_url('/contactbio');?>">contact & biography</a></li>
 						<!-- <?php echo wp_list_pages(array('title_li' => NULL,'sort_column' => 'menu_order')); ?>  -->
 						<li style="padding-top: 25px; padding-bottom: 4mm;">
 						<a href="https://www.instagram.com/mejacanja/?hl=en"><i class="fa fa-instagram up" style="font-size: 1.5em; color: white; padding-right:15px;" aria-hidden="true"> &nbsp;|</i></a>

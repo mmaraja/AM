@@ -31,8 +31,6 @@ $(document).ready(function(){
     $('.visual-arts').css('display','none');
     $('.performing-arts').css('display');
     $("#perf-art").addClass('underline');
-    
-    
-    
+        
 });
 

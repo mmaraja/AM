@@ -102,7 +102,7 @@ get_header();
                   <div class="image-grid-container"> 
                     <?php foreach ($mypostsPhoto as $mypostPhoto):
                     $post_content = get_post($mypostPhoto);
-                    if (get_field('arts', $mypostPhoto) == 'perf_arts') {
+                    if (get_field('arts', $mypostPhoto) == 'performing_arts') {
                       $per= "performing-arts";
                     } else  {
                             $per= "visual-arts";

@@ -47,13 +47,14 @@ get_header();
 						if($mypostsSklad):?>
 				
 						
-						<div class="col-sm-11 col-lg-4 col-md-5" >
+						<div class="col-sm-11" >
 							<?php foreach ($mypostsSklad as $mypostSklad):
 							$post_content = get_post($mypostSklad);
 						
 							?> 
 							<!-- Content -->
-							<div><a class="type-sklad" href="<?php echo get_permalink($mypostSklad->ID); ?>"><?php echo get_the_title($mypostSklad->ID); ?></a></div>
+							<div>
+							<a class="type-sklad " href="<?php echo get_permalink($mypostSklad->ID); ?>"><?php echo get_the_title($mypostSklad->ID); ?></a></div>
 
 							<?php endforeach; wp_reset_postdata(); ?>
 						
